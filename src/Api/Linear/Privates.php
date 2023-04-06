@@ -302,7 +302,7 @@ class Privates extends Request
     }
 
     /*
-     *GET /v2/private/wallet/balance
+     *GET /v5/account/wallet-balance
      * */
     public function getWalletBalance(array $data=[])
     {
@@ -346,12 +346,23 @@ class Privates extends Request
     }
 
     /*
-     *GET /v2/private/account/api-key
+     *GET /v5/user/query-api
      * */
     public function getApiKeyInfo(array $data=[])
     {
         $this->type='GET';
         $this->path='/v5/user/query-api';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+     /*
+     *GET /v5/account/info
+     * */
+    public function getAccountInfo(array $data=[])
+    {
+        $this->type='GET';
+        $this->path='/v5/account/info';
         $this->data=$data;
         return $this->exec();
     }
